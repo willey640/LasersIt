@@ -12,11 +12,11 @@
             padding: 0;
             background-color: #f4f4f4;
         }
-        header {
+        header, footer {
             background-color: #333;
             color: #fff;
-            padding: 10px 0;
             text-align: center;
+            padding: 10px 0;
         }
         nav {
             display: flex;
@@ -27,7 +27,6 @@
             color: #fff;
             padding: 14px 20px;
             text-decoration: none;
-            text-align: center;
         }
         nav a:hover {
             background-color: #555;
@@ -36,20 +35,6 @@
             max-width: 100%;
             padding: 20px;
             box-sizing: border-box;
-        }
-        .hero {
-            background-image: url('hero-image.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-shadow: 2px 2px 4px #000;
-        }
-        .hero h1 {
-            font-size: 3em;
         }
         .products {
             display: flex;
@@ -64,118 +49,90 @@
             padding: 20px;
             width: 300px;
             text-align: center;
+            cursor: pointer;
         }
         .product img {
             max-width: 100%;
             height: auto;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
+        /* Modal Styling */
+        .modal {
+            display: none;
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            bottom: 0;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .modal img {
+            width: 300px;
+            border-radius: 5px;
+        }
+        .close {
+            cursor: pointer;
+            font-size: 20px;
+            color: red;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Lasers It</h1>
-        <div class="container">
-            <img src= "laser it.webp" alt="Sample Image">
-        </div>
-    
     </header>
     <nav>
         <a href="index.html">Games</a>
         <a href="record.html">Laser Cut Records</a>
         <a href="update.html">News and Events</a>
-        <a href="contact.html">About US</a>
+        <a href="contact.html">About Us</a>
         <a href="contact.html">Contact</a>
     </nav>
-    <div class="hero">
-        <h1>Games</h1>
-       
-    </div>
     <div class="container">
         <section id="products" class="products">
-            
-
-            <div class="product">
-                <img src="games/crib (6).jpg" alt="Custom Laser Cutout">
-
+            <div class="product" onclick="showDetails('games/crib (6).jpg', 'Cribbage Board', 'Homemade custom crib board. Comes with deck of cards and metal pegs.', '$75.00')">
+                <img src="games/crib (6).jpg" alt="Cribbage Board">
                 <h2>Cribbage Board</h2>
-                <p>Homemade custom crib board. Comes with deck of cards and metal pegs.</p>
-                <h2>Price: $75.00</h2>
             </div>
-
-      
-            <div class="product">
-                <img src="games/Frustration (3).jpg" alt="Frustration Board Game">
-
+            <div class="product" onclick="showDetails('games/Frustration (3).jpg', 'Frustration', 'Homemade custom Frustration board. Comes with cards and dice and wooden pegs.', '$25.00')">
+                <img src="games/Frustration (3).jpg" alt="Frustration">
                 <h2>Frustration</h2>
-                <p>Homemade custom Frustration board. Comes with cards and dice and wooden pegs.</p>
-                <h2>Price: $25.00</h2>
             </div>
-
-            <div class="product">
-                <img src="games/horse (6).jpg" alt="Custom Horse Racing Game.">
-
-                <h2>Horse Racing Board Game</h2>
-                <p>Homemade custom horse racing board game. Come with deck of cards and 2 dice.</p>
-                <h2>Price: $75.00</h2>
-            </div>
-            <div class="product">
-                <img src="games/Rummorlia (2).jpg" alt="Custom Rummorlia Game.">
-
-                <h2>Rummorlia Board</h2>
-                <p>Homemade custom Rummorlia board. Comes with cards and cups to hold coins/chips.</p>
-                <h2>Price: $75.00</h2>
-            </div>
-            <div class="product">
-                <img src="games/crib (6).jpg" alt="Custom Laser Cutout">
-
-                <h2>Cribbage Board</h2>
-                <p>Homemade custom crib board.</p>
-                <h2>Price: $75.00</h2>
-            </div>
-            <div class="product">
-                <img src="games/crib (6).jpg" alt="Custom Laser Cutout">
-
-                <h2>Cribbage Board</h2>
-                <p>Homemade custom crib board.</p>
-                <h2>Price: $75.00</h2>
-            </div>
-            <div class="product">
-                <img src="games/crib (6).jpg" alt="Custom Laser Cutout">
-
-                <h2>Cribbage Board</h2>
-                <p>Homemade custom crib board.</p>
-                <h2>Price: $75.00</h2>
-            </div>
-            <div class="product">
-                <img src="games/crib (6).jpg" alt="Custom Laser Cutout">
-
-                <h2>Cribbage Board</h2>
-                <p>Homemade custom crib board.</p>
-                <h2>Price: $75.00</h2>
-            </div>
-
-
         </section>
     </div>
     <footer>
         <p>&copy; 2025 All rights reserved. Lasers It</p>
     </footer>
+
+    <!-- Modal Popup -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">X</span>
+            <img id="modal-img" src="" alt="">
+            <h2 id="modal-title"></h2>
+            <p id="modal-text"></p>
+            <h3 id="modal-price"></h3>
+        </div>
+    </div>
+
+    <script>
+        function showDetails(imageSrc, title, description, price) {
+            document.getElementById('modal-img').src = imageSrc;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-text').innerText = description;
+            document.getElementById('modal-price').innerText = "Price: " + price;
+            document.getElementById('modal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
-
