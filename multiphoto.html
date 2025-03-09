@@ -36,6 +36,20 @@
             padding: 20px;
             box-sizing: border-box;
         }
+        
+        .hero {
+            background-image: url('hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .hero h1 {
+            font-size: 3em;
         .products {
             display: flex;
             flex-wrap: wrap;
@@ -85,16 +99,24 @@
     </style>
 </head>
 <body>
+
     <header>
         <h1>Lasers It</h1>
+        <div class="container">
+            <img src= "laser it.webp" alt="Lasers It Logo">
+        </div>
+    
     </header>
     <nav>
         <a href="index.html">Games</a>
-        <a href="record.html">Laser Cut Records</a>
-        <a href="update.html">News and Events</a>
+        <a href="multiphoto.html">Laser Cut Records</a>
+        <a href="multiphoto.html"">News and Events</a>
         <a href="contact.html">About Us</a>
         <a href="contact.html">Contact</a>
     </nav>
+    <div class="hero">
+        <h1>Games</h1>
+    </div>
     <div class="container">
         <section id="products" class="products">
             <div class="product" onclick="showDetails(['games/crib (6).jpg', 'games/crib (2).jpg', 'games/crib (5).jpg'], 'Cribbage Board', 'Homemade custom crib board. Comes with deck of cards and metal pegs.', '$75.00')">
@@ -102,6 +124,8 @@
 
                 
                 <h2>Cribbage Board</h2>
+                <p>Homemade custom crib board. Comes with deck of cards and metal pegs.</p>
+                <h2>Price: $75.00</h2>
             </div>
             <div class="product" onclick="showDetails(['games/Frustration (3).jpg', 'games/Frustration (4).jpg'], 'Frustration', 'Homemade custom Frustration board. Comes with cards and dice and wooden pegs.', '$25.00')">
                 <img src="games/Frustration (3).jpg" alt="Frustration">
