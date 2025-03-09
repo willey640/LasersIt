@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Lasers It</title>
+    <title>News & Events - Lasers It</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
@@ -39,7 +39,7 @@
             text-align: center;
         }
         .hero {
-            background-image: url('contact-hero.jpg');
+            background-image: url('news-hero.jpg');
             background-size: cover;
             background-position: center;
             height: 200px;
@@ -52,36 +52,22 @@
         .hero h1 {
             font-size: 3em;
         }
-        .contact-form {
+        .news-content {
             background-color: #fff;
             padding: 20px;
             margin: 20px auto;
-            max-width: 600px;
+            max-width: 800px;
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
         }
-        .contact-form label {
-            font-weight: bold;
+        .news-item {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
         }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .contact-form button:hover {
-            background-color: #555;
+        .news-item h2 {
+            color: #333;
         }
         footer {
             background-color: #333;
@@ -105,23 +91,22 @@
         <a href="update.html">Contact</a>
     </nav>
     <div class="hero">
-        <h1>Contact Us</h1>
+        <h1>News & Events</h1>
     </div>
     <div class="container">
-        <section class="contact-form">
-            <h2>Get in Touch</h2>
-            <form action="#" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-                
-                <button type="submit">Send Message</button>
-            </form>
+        <section class="news-content">
+            <div class="news-item">
+                <h2>Upcoming Craft Fair</h2>
+                <p>Join us at the annual craft fair on March 15th to see our latest laser-cut creations in person!</p>
+            </div>
+            <div class="news-item">
+                <h2>New Product Line Launched!</h2>
+                <p>We are excited to introduce our new line of custom-made laser-cut wall art. Check out our store for details.</p>
+            </div>
+            <div class="news-item">
+                <h2>Special Discount for Subscribers</h2>
+                <p>Sign up for our newsletter and get an exclusive 10% discount on your first purchase!</p>
+            </div>
         </section>
     </div>
     <footer>
