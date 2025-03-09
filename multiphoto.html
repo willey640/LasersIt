@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lasers It</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .modal img {
+            width: 300px;
+            border-radius: 5px;
+        }
+        .close {
+            cursor: pointer;
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lasers It</h1>
+    </header>
+    <nav>
+        <a href="index.html">Games</a>
+        <a href="record.html">Laser Cut Records</a>
+        <a href="update.html">News and Events</a>
+        <a href="contact.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="products" class="products">
+            <div class="product" onclick="showDetails(['games/crib (6).jpg', 'games/crib (7).jpg', 'games/crib (8).jpg'], 'Cribbage Board', 'Homemade custom crib board. Comes with deck of cards and metal pegs.', '$75.00')">
+                <img src="games/crib (6).jpg" alt="Cribbage Board">
+                <h2>Cribbage Board</h2>
+            </div>
+            <div class="product" onclick="showDetails(['games/Frustration (3).jpg', 'games/Frustration (4).jpg'], 'Frustration', 'Homemade custom Frustration board. Comes with cards and dice and wooden pegs.', '$25.00')">
+                <img src="games/Frustration (3).jpg" alt="Frustration">
+                <h2>Frustration</h2>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 All rights reserved. Lasers It</p>
+    </footer>
+
+    <!-- Modal Popup -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">X</span>
+            <img id="modal-img" src="" alt="">
+            <h2 id="modal-title"></h2>
+            <p id="modal-text"></p>
+            <h3 id="modal-price"></h3>
+            <br>
+            <button onclick="prevImage()">&#10094; Prev</button>
+            <button onclick="nextImage()">Next &#10095;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentImages = [];
+        let currentIndex = 0;
+
+        function showDetails(images, title, description, price) {
+            currentImages = images;
+            currentIndex = 0;
+            updateModal();
+
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-text').innerText = description;
+            document.getElementById('modal-price').innerText = "Price: " + price;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function updateModal() {
+            document.getElementById('modal-img').src = currentImages[currentIndex];
+        }
+
+        function nextImage() {
+            if (currentIndex < currentImages.length - 1) {
+                currentIndex++;
+                updateModal();
+            }
+        }
+
+        function prevImage() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateModal();
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
